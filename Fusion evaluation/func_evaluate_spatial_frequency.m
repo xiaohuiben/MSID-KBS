@@ -1,0 +1,10 @@
+function SF = func_evaluate_spatial_frequency(MF)
+RF = diff(MF,1,1);
+% RF = sqrt(mean(mean(RF.^2)));
+RFt=RF.^2;
+RF=sqrt(sum(RFt(:))/(size(MF,1)*size(MF,2)));
+CF = diff(MF,1,2);
+CFt=CF.^2;
+% CF = sqrt(mean(mean(CF.^2)));
+CF=sqrt(sum(CFt(:))/(size(MF,1)*size(MF,2)));
+SF = sqrt(RF^2+CF^2);
